@@ -1,0 +1,212 @@
+{
+  "resources": [
+    {
+      "name": "storage-account",
+      "properties": {
+        "accountRepliationType": "",
+        "accountTier": "",
+        "allowNestedItemsToBePublic": "false",
+        "blobProperties": {
+          "deleteRetentionPolicy": {
+            "days": ""
+          }
+        },
+        "cloud": "Azure",
+        "enableHttpsTrafficOnly": "true",
+        "minTlsVersion": "",
+        "networkRules": {
+          "defaultAction": "",
+          "virtualNetworkRules": []
+        },
+        "resourceGroupName": "",
+        "resourceType": "storage-account",
+        "tags": {}
+      }
+    },
+    {
+      "name": "blob-container",
+      "properties": {
+        "container_access_type": "private",
+        "resourceType": "storage-container",
+        "storage_account_name": ""
+      }
+    },
+    {
+      "name": "app-service-plan",
+      "properties": {
+        "cloud": "Azure",
+        "osType": "",
+        "pricingPlan": "",
+        "resourceGroupName": "",
+        "resourceType": "app-service-plan",
+        "skuName": "",
+        "tags": {}
+      }
+    },
+    {
+      "dependencies": [
+        {
+          "resourceType": "storage-account"
+        },
+        {
+          "resourceType": "app-service-plan"
+        }
+      ],
+      "name": "async-req-handler",
+      "properties": {
+        "appServicePlan": "",
+        "cloud": "Azure",
+        "os_type": "",
+        "resourceGroupName": "",
+        "resourceType": "function-app",
+        "siteConfig": {
+          "applicationStack": {
+            "dotnetVersion": ""
+          },
+          "healthCheckPath": "",
+          "http2Enabled": "",
+          "virtual_network_subnet_id": []
+        },
+        "storageAccountAccessKey": "",
+        "storageAccountName": "",
+        "tags": {}
+      }
+    },
+    {
+      "dependencies": [
+        {
+          "resourceType": "storage-account"
+        },
+        {
+          "resourceType": "app-service-plan"
+        }
+      ],
+      "name": "sync-async-notification-handler",
+      "properties": {
+        "appServicePlan": "",
+        "cloud": "Azure",
+        "os_type": "",
+        "resourceGroupName": "",
+        "resourceType": "function-app",
+        "siteConfig": {
+          "applicationStack": {
+            "dotnetVersion": ""
+          },
+          "healthCheckPath": "",
+          "http2Enabled": "",
+          "virtual_network_subnet_id": []
+        },
+        "storageAccountAccessKey": "",
+        "storageAccountName": "",
+        "tags": {}
+      }
+    },
+    {
+      "dependencies": [
+        {
+          "resourceType": "storage-account"
+        },
+        {
+          "resourceType": "app-service-plan"
+        }
+      ],
+      "name": "email",
+      "properties": {
+        "appServicePlan": "",
+        "cloud": "Azure",
+        "os_type": "",
+        "resourceGroupName": "",
+        "resourceType": "function-app",
+        "siteConfig": {
+          "applicationStack": {
+            "dotnetVersion": ""
+          },
+          "healthCheckPath": "",
+          "http2Enabled": "",
+          "virtual_network_subnet_id": []
+        },
+        "storageAccountAccessKey": "",
+        "storageAccountName": "",
+        "tags": {}
+      }
+    },
+    {
+      "dependencies": [
+        {
+          "resourceType": "storage-account"
+        },
+        {
+          "resourceType": "app-service-plan"
+        }
+      ],
+      "name": "in-app",
+      "properties": {
+        "appServicePlan": "",
+        "cloud": "Azure",
+        "os_type": "",
+        "resourceGroupName": "",
+        "resourceType": "function-app",
+        "siteConfig": {
+          "applicationStack": {
+            "dotnetVersion": ""
+          },
+          "healthCheckPath": "",
+          "http2Enabled": "",
+          "virtual_network_subnet_id": []
+        },
+        "storageAccountAccessKey": "",
+        "storageAccountName": "",
+        "tags": {}
+      }
+    },
+    {
+      "name": "eventhub-namspace",
+      "properties": {
+        "capacity": "",
+        "name": "",
+        "resourceGroupName": "",
+        "resourceType": "eventhub-namespace",
+        "sku": "",
+        "tags": {}
+      }
+    },
+    {
+      "dependencies": [
+        {
+          "resourceType": "eventhub-namespace"
+        }
+      ],
+      "name": "event-hub",
+      "properties": {
+        "messageRetention": "",
+        "name": "",
+        "namespaceName": "",
+        "partitionCount": "",
+        "resourceGroupName": "",
+        "resourceType": "event-hub"
+      }
+    },
+    {
+      "name": "event-grid-topic",
+      "properties": {
+        "identity": {
+          "identityIds": "",
+          "type": ""
+        },
+        "resourceGroup": "",
+        "resourceType": "event-grid-topic",
+        "tags": {}
+      }
+    }
+  ],
+  "version": [
+    {
+      "releaseDate": "",
+      "versionNumber": "1.0.2"
+    },
+    {
+      "releaseDate": "",
+      "versionNumber": "1.0.1"
+    }
+  ]
+}
