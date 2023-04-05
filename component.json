@@ -39,8 +39,7 @@
         "pricingPlan": "",
         "resourceGroupName": "",
         "resourceType": "app-service-plan",
-        "skuName": "",
-        "tags": {}
+        "skuName": ""
       }
     },
     {
